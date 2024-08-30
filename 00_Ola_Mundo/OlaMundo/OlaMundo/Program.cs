@@ -10,13 +10,21 @@ namespace OlaMundo
     {
         static void Main(string[] args)
         {
-            MyCustomClass myClass = new MyCustomClass();
+            Conta x = new Conta();
+
+            x.SetNumero(30);
+            x.GetNumero();
+
+            x.Nome = "pedro";
+            string y = x.Nome;
+
+            /*MyCustomClass myClass = new MyCustomClass();
             myClass.SetNumber(27);
 
             int resultado = myClass.Multiply(16);
 
             Console.WriteLine("Desenvolvido na primeira aula prática: " + resultado.ToString());
-            Console.ReadKey();
+            Console.ReadKey();*/
         }
     }
 }
