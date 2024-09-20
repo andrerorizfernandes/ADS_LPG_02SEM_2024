@@ -25,15 +25,16 @@
         <asp:Label ID="lblInformacao" runat="server" style="z-index: 1; left: 10px; top: 17px; position: absolute; width: 200px; right: 721px; bottom: 316px;"></asp:Label>
         
         <asp:Label ID="lblInfo02" runat="server" style="z-index: 1; left: 10px; top: 86px; position: absolute; width: 376px; right: 570px; bottom: 233px;"></asp:Label>
-        <asp:CheckBox ID="chkAceito" runat="server" style="z-index: 1; left: 10px; top: 105px; position: absolute; width: 329px" Text="Aceito os termos deste contrato" CssClass="auto-style2" />
+        <asp:CheckBox ID="chkAceito" runat="server" style="z-index: 1; left: 10px; top: 105px; position: absolute; width: 329px" Text="Aceito os termos deste contrato" CssClass="auto-style2" AutoPostBack="True" OnCheckedChanged="chkAceito_CheckedChanged" />
         
         <asp:CheckBoxList ID="lbiCarros" runat="server" style="z-index: 1; left: 247px; top: 41px; position: absolute; height: 81px; width: 221px">
         </asp:CheckBoxList>
-        <asp:Label ID="lblInformacao3" runat="server" style="z-index: 1; left: 485px; top: 70px; position: absolute; width: 200px; right: 271px; bottom: 255px;"></asp:Label>
+        <asp:Label ID="lblInformacao3" runat="server" style="z-index: 1; left: 484px; top: 69px; position: absolute; width: 200px; right: 309px; bottom: -8px;"></asp:Label>
         
-        <asp:Button ID="btnSelecionados" runat="server" Text="Selecionados" CssClass="auto-style1" />
+        <asp:Button ID="btnSelecionados" runat="server" Text="Selecionados" CssClass="auto-style1" OnClick="btnSelecionados_Click" />
         
-        <asp:DropDownList ID="ddlDados" runat="server" style="z-index: 1; left: 10px; top: 39px; position: absolute; height: 24px; width: 208px"></asp:DropDownList>
+        <asp:DropDownList ID="ddlDados" runat="server" style="z-index: 1; left: 10px; top: 39px; position: absolute; height: 24px; width: 208px" AutoPostBack="True" OnSelectedIndexChanged="ddlDados_SelectedIndexChanged">
+        </asp:DropDownList>
         
     </div>
     </form>
