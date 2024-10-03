@@ -39,6 +39,24 @@ namespace WF_Exemplos
             lblTotalAtual.Text = "Total a Pagar: " + Calculo;
             lblTotalGeral.Text = "Total Geral: " + TotalGeral;
         }
+
+        private void LimparCampos()
+        {
+            cboSexo.SelectedIndex = 0;
+            txtQtdCervejas.Text = "0";
+            txtQtdEspetinhos.Text = "0";
+            txtQtdRefrigerantes.Text = "0";
+            cboSexo.Focus();
+        }
+
+        private void ReiniciarValorAtual()
+        {
+            lblTotalAtual.Text = "Total a Pagar: 0";
+            lblTotalGeral.Text = "Total Geral Recebido: 0";
+            Session["TotalGeral"] = 0.0;
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,6 +68,13 @@ namespace WF_Exemplos
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
             CalcularEntrada();
+            LimparCampos();
+        }
+
+        protected void btnLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+            ReiniciarValorAtual();
         }
     }
 }

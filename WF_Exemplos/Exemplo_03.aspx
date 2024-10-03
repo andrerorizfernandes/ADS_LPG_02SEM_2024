@@ -48,7 +48,7 @@
         </p>
         <p>
         <asp:Label ID="lblTotalAtual" runat="server" style="z-index: 1; left: 152px; top: 193px; position: absolute; width: 324px;" Text="Total a Pagar: 0" BackColor="#FFFF66" Font-Bold="True" ForeColor="Red"></asp:Label>
-        <asp:Button ID="btnLimpar" runat="server" Text="Limpar" CssClass="auto-style1"/>
+        <asp:Button ID="btnLimpar" runat="server" Text="Limpar" CssClass="auto-style1" OnClick="btnLimpar_Click"/>
         </p>
     </form>
 </body>
