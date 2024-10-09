@@ -21,12 +21,12 @@ namespace WF_Exemplos
             gvDados.DataSource = pDados;
             gvDados.DataBind();
         }
-
-        private void ExibirDados(List<Aluno> pDados)
+private void ExibirDados(List<Aluno> pDados)
         {
             gvDados.DataSource = pDados;
             gvDados.DataBind();
         }
+        
 
         private DataSet CarregarDadosXML()
         {
