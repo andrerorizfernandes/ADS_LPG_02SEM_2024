@@ -25,6 +25,23 @@ namespace WF_Exemplos
             gvDados.DataBind();
         }
 
+        private void LimparCampos()
+        {
+            txtID.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            txtMatricula.Text = string.Empty;
+            txtCurso.Text = string.Empty;
+        }
+
+        protected void ExibirMensagem(string pMensagem)
+        {
+            string sJavaScript = "<script language=javascript>\n";
+            sJavaScript += "alert('" + pMensagem + "');";
+            sJavaScript += "\n";
+            sJavaScript += "</script>";
+            ClientScript.RegisterStartupScript(typeof(string), "MessageBox", sJavaScript);
+        }
+
         private List<Aluno> CarregarAlunos()
         {   
             MySqlCommand comando = new MySqlCommand("SELECT id, matricula, nome, curso FROM aluno", Conexao());
@@ -71,6 +88,16 @@ namespace WF_Exemplos
             return (dr.RecordsAffected > 0);
         }
 
+        private bool ExcluirAluno(Aluno aluno)
+        {
+            MySqlCommand comando = new MySqlCommand("Delete From Aluno" +
+                " Where id=@id", Conexao());
+            comando.Parameters.AddWithValue("@id", aluno.Id.ToString());
+            MySqlDataReader dr = comando.ExecuteReader();
+
+            return (dr.RecordsAffected > 0);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
            if (!IsPostBack)
@@ -91,22 +118,52 @@ namespace WF_Exemplos
             {
                 ExibirDados(CarregarAlunos());
                 lblRetornoOperacao.Text = "Aluno inserido com sucesso";
+                LimparCampos();
             }
         }
 
         private void Editar()
         {
-            Aluno a = new Aluno();
-            a.Id = Convert.ToInt32(txtID.Text);
-            a.Matricula = txtMatricula.Text;
-            a.Nome = txtNome.Text;
-            a.Curso = txtCurso.Text;
-
-            lblRetornoOperacao.Text = "Falha ao editar aluno";
-            if (EditarAluno(a))
+            if (txtID.Text == string.Empty)
             {
-                ExibirDados(CarregarAlunos());
-                lblRetornoOperacao.Text = "Aluno editar com sucesso";
+                ExibirMensagem("Informe o id para alteração");
+            }
+            else
+            {
+                Aluno a = new Aluno();
+                a.Id = Convert.ToInt32(txtID.Text);
+                a.Matricula = txtMatricula.Text;
+                a.Nome = txtNome.Text;
+                a.Curso = txtCurso.Text;
+
+                lblRetornoOperacao.Text = "Falha ao editar aluno";
+                if (EditarAluno(a))
+                {
+                    ExibirDados(CarregarAlunos());
+                    lblRetornoOperacao.Text = "Aluno editado com sucesso";
+                    LimparCampos();
+                }
+            }
+        }
+
+        private void Excluir()
+        {
+            if (txtID.Text == string.Empty)
+            {
+                ExibirMensagem("Informe o id para exclusão");
+            }
+            else
+            {
+                Aluno a = new Aluno();
+                a.Id = Convert.ToInt32(txtID.Text);
+
+                lblRetornoOperacao.Text = "Falha ao excluir aluno";
+                if (ExcluirAluno(a))
+                {
+                    ExibirDados(CarregarAlunos());
+                    lblRetornoOperacao.Text = "Aluno excluído com sucesso";
+                    LimparCampos();
+                }
             }
         }
 
@@ -122,12 +179,12 @@ namespace WF_Exemplos
 
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            Excluir();
         }
 
         protected void btnAtualizar_Click(object sender, EventArgs e)
         {
-
+            ExibirDados(CarregarAlunos());
         }
     }
 }
