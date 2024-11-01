@@ -1,0 +1,76 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.sejabixo.com.br/wp-content/uploads/2023/06/vestibular-fasm-muriae.jpg'); /* Altere para o caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+header {
+    background-color: #333;
+    position: fixed; /* Fixa o cabeçalho */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.menu {
+    overflow: hidden;
+}
+
+    .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .menu ul li {
+            float: left;
+        }
+
+            .menu ul li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                .menu ul li a:hover {
+                    background-color: #111;
+                }
+
+.content {
+    margin-top: 60px; /* Adiciona margem para que o conteúdo não fique atrás do cabeçalho */
+    margin-bottom: 40px; /* Adiciona margem inferior para o rodapé */
+    min-height: calc(100vh - 100px); /* Ajusta a altura do conteúdo */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza horizontalmente */
+    overflow-y: auto; /* Permite rolagem vertical */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: fixed; /* Fixa o rodapé */
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.highlight {
+    background-color: rgba(255, 255, 0, 0.5); /* Cor de destaque */
+    transition: background-color 0.3s; /* Transição suave */
+}

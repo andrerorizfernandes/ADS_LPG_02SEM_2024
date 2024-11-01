@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pojo", "Pojo\Pojo.csproj", "{197724A3-F1D3-4CBC-8C88-B11B25FC16BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "Dal\Dal.csproj", "{527620FF-4A5C-4905-9462-61710B21F96C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{197724A3-F1D3-4CBC-8C88-B11B25FC16BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197724A3-F1D3-4CBC-8C88-B11B25FC16BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197724A3-F1D3-4CBC-8C88-B11B25FC16BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197724A3-F1D3-4CBC-8C88-B11B25FC16BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527620FF-4A5C-4905-9462-61710B21F96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527620FF-4A5C-4905-9462-61710B21F96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527620FF-4A5C-4905-9462-61710B21F96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527620FF-4A5C-4905-9462-61710B21F96C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADD510C5-A9FB-4435-89E3-0DC43A4BFA3E}
+	EndGlobalSection
+EndGlobal
