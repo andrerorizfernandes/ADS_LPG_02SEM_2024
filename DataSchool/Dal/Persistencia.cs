@@ -10,37 +10,30 @@ namespace Dal
 {
     public class Persistencia
     {
-        public static MySqlDataReader ExecutarSQL(string pSQL, Aluno pAluno)
+        public static MySqlDataReader ExecutarSQL(string pSQL, object pEntidade)
         {
             MySqlCommand comando = new MySqlCommand(pSQL, Conexao.ConectarBD());
-            if (pAluno != null)
+            if (pEntidade is Aluno aluno)
+	        {           
+               comando.Parameters.AddWithValue("@codaluno", aluno.CodAluno);
+               comando.Parameters.AddWithValue("@nome", aluno.Nome);
+               comando.Parameters.AddWithValue("@cpf", aluno.Cpf);
+               comando.Parameters.AddWithValue("@sexo", aluno.Sexo);
+               comando.Parameters.AddWithValue("@idade", aluno.Idade);
+               
+	        }else 
+            if (pEntidade is Professor professor)
             {
-                comando.Parameters.AddWithValue("@codaluno", pAluno.CodAluno);
-                comando.Parameters.AddWithValue("@nome", pAluno.Nome);
-                comando.Parameters.AddWithValue("@cpf", pAluno.Cpf);
-                comando.Parameters.AddWithValue("@sexo", pAluno.Sexo);
-                comando.Parameters.AddWithValue("@idade", pAluno.Idade);
+               comando.Parameters.AddWithValue("@codprofessor", professor.CodProfessor);
+               comando.Parameters.AddWithValue("@nome", professor.Nome);
+               comando.Parameters.AddWithValue("@cpf", professor.Cpf);
+               comando.Parameters.AddWithValue("@sexo", professor.Sexo);
+               comando.Parameters.AddWithValue("@titulacao", professor.Titulacao);
+               comando.Parameters.AddWithValue("@area", professor.Area);
             }
-            MySqlDataReader dr = comando.ExecuteReader();
 
+            MySqlDataReader dr = comando.ExecuteReader();
             return dr;
-        }
-
-        public static bool ExecutarSQL(string pSQL, Professor pProfessor)
-        {
-            MySqlCommand comando = new MySqlCommand(pSQL, Conexao.ConectarBD());
-            if (pProfessor != null)
-            {
-                comando.Parameters.AddWithValue("@codprofessor", pProfessor.CodProfessor);
-                comando.Parameters.AddWithValue("@nome", pProfessor.Nome);
-                comando.Parameters.AddWithValue("@cpf", pProfessor.Cpf);
-                comando.Parameters.AddWithValue("@sexo", pProfessor.Sexo);
-                comando.Parameters.AddWithValue("@titulacao", pProfessor.Titulacao);
-                comando.Parameters.AddWithValue("@area", pProfessor.Area);
-            }
-            MySqlDataReader dr = comando.ExecuteReader();
-
-            return (dr.RecordsAffected > 0);
         }
     }
 }

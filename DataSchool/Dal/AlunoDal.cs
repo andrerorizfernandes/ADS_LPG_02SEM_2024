@@ -29,7 +29,9 @@ namespace Dal
 
         public List<Aluno> ListarAlunos()
         {
-            MySqlDataReader dr = Persistencia.ExecutarSQL("Select codaluno, nome, cpf, sexo, idade From aluno", null);
+            Aluno al = new Aluno();
+            MySqlDataReader dr = Persistencia.ExecutarSQL("Select codaluno, nome, cpf, sexo, idade From aluno", 
+                null);
 
             List<Aluno> alunos = new List<Aluno>();
             while (dr.Read())

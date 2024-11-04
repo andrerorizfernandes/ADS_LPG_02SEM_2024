@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="AlunoDal.cs" />
     <Compile Include="Conexao.cs" />
+    <Compile Include="Persistencia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
