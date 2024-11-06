@@ -29,24 +29,25 @@ namespace Dal
 
         public List<Aluno> ListarAlunos()
         {
-            var dr = Persistencia.ExecutarSQL("Select codaluno, nome, cpf, sexo, idade From aluno", 
-                null);
-
-            List<Aluno> alunos = new List<Aluno>();
-            while (dr.Read())
+            using (var dr = Persistencia.ExecutarSQL("Select codaluno, nome, cpf, sexo, idade From aluno",
+                null))
             {
-                Aluno aluno = new Aluno();
+                List<Aluno> alunos = new List<Aluno>();
+                while (dr.Read())
+                {
+                    Aluno aluno = new Aluno();
 
-                aluno.CodAluno = Convert.ToInt32(dr["codaluno"].ToString());
-                aluno.Nome = dr["nome"].ToString();
-                aluno.Cpf = dr["cpf"].ToString();
-                aluno.Sexo = dr["sexo"].ToString();
-                aluno.Idade = Convert.ToInt32(dr["idade"].ToString());
+                    aluno.CodAluno = Convert.ToInt32(dr["codaluno"].ToString());
+                    aluno.Nome = dr["nome"].ToString();
+                    aluno.Cpf = dr["cpf"].ToString();
+                    aluno.Sexo = dr["sexo"].ToString();
+                    aluno.Idade = Convert.ToInt32(dr["idade"].ToString());
 
-                alunos.Add(aluno);
+                    alunos.Add(aluno);
+                }
+
+                return alunos;
             }
-
-            return alunos;
         }
     }
 }
