@@ -11,8 +11,8 @@
         <header>
             <div class="menu">
                 <ul>
-                    <li><a href="Aluno.aspx">Aluno</a></li>
-                    <li><a href="Professor.aspx">Professor</a></li>                                        
+                    <li><a href="AlunoView.aspx">Aluno</a></li>
+                    <li><a href="ProfessorView.aspx">Professor</a></li>                                        
                 </ul>
             </div>
         </header>

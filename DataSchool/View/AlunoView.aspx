@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Aluno.aspx.cs" Inherits="View.Aluno" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AlunoView.aspx.cs" Inherits="View.AlunoView" %>
 
 <!DOCTYPE html>
 

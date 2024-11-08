@@ -11,7 +11,7 @@ namespace View
 {
 
 
-    public partial class Aluno
+    public partial class AlunoView
     {
 
         /// <summary>

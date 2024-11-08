@@ -12,8 +12,9 @@ namespace Dal
     {
         public bool InserirAluno(Aluno aluno)
         {
-            return (Persistencia.ExecutarSQL("Insert Into Aluno Values @codaluno, @nome, @cpf, @sexo," +
-                "@idade", aluno).RecordsAffected > 0);
+            aluno.CodAluno = Persistencia.RetornarProximoId("aluno", "codaluno");
+            return (Persistencia.ExecutarSQL("Insert Into Aluno Values (@codaluno, @nome, @cpf, @sexo," +
+                "@idade)", aluno).RecordsAffected > 0);
         }
 
         public bool EditarAluno(Aluno aluno)

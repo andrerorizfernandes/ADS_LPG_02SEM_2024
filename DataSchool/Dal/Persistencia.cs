@@ -35,5 +35,15 @@ namespace Dal
             MySqlDataReader dr = comando.ExecuteReader();
             return dr;
         }
+
+        public static int RetornarProximoId(string pNomeTabela, string pNomeCampoChave)
+        {
+            var lSql = "Select Coalesce(Max(" + pNomeCampoChave + ")+1, 1) ProximoCodigo From " + pNomeTabela;
+            using (var dr = ExecutarSQL(lSql, null))
+            {
+                dr.Read();
+                return Convert.ToInt32(dr["ProximoCodigo"].ToString());
+            }
+        }
     }
 }
